@@ -183,11 +183,13 @@ export async function fetchAndProcessData(ml, ul, extended) {
             numbers.splice(randomIndex, 1)
         }
 
+        extractedData.push("FNaF Max Mode Roulette") // Title
+
         extractedData.push(result)
 
         //console.log(JSON.stringify(extractedData, null, 2))
 
-        extractedData.push(1) // the number of max modes you've done so far
+        extractedData.push(1) // The number of max modes you've done so far
 
         return extractedData
     } catch (error) {

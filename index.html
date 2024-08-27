@@ -269,6 +269,25 @@
         #saveButton:hover {
             background-color: #1e1e1e;
         }
+
+        #docsButton {
+            background-color: darkslategray;
+            color: white;
+            border-radius: 5px;
+            border: 2px solid #2a2a2a;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            box-shadow: 0 0px 50px rgba(255, 255, 255, 0.1);
+        }
+
+        #docsButton:hover {
+            background-color: #1e1e1e;
+        }
         
         #fetchButton.restart {
             background-color: red;
@@ -295,7 +314,7 @@
     </style>
 </head>
 <a href="https://frrozenjr.github.io/max-mode-roulette/info">
-    <h1>FNaF Max Mode Roulette</h1>
+    <h1 class="title-class">FNaF Max Mode Roulette</h1>
 </a>
 <body>
     <div class="extended-toggle">
@@ -316,6 +335,7 @@
     
     <button id="fetchButton">Start</button>
     <button id="saveButton">Load</button>
+    <button id="docsButton" onclick="window.location.href='https://docs.google.com/document/d/1UWeE8zpyJx1VOhLsu3gGbF1_FgxVyjjkolnXR8b3mIs/edit?usp=sharing';">Save file Docs</button>
     <input type="file" id="fileInput" style="display: none;" accept=".mmr" />
 
     <div class="mode-container"></div>
@@ -539,6 +559,8 @@ ${JSON.stringify(list, null, 2)}`
                             }
                         }
                         createAndAppendNewBox()
+
+                        document.getElementsByClassName("title-class")[0].textContent = list[list.length - 3]
                     }
                     
                     reader.readAsText(file)
