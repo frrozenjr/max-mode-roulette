@@ -128,6 +128,9 @@ export async function fetchAndProcessData(ml, ul, extended) {
             if (data.gameTitle == "Puppet Night All Challenges") {
                 data.nightLength = "360" // because idk why its not working
             }
+            if (data.gameTitle == "Nightmare All Challenges") {
+                data.nightLength = "540" // because idk why its not working
+            }
 
             // Store the extracted data
             if (data.gameTitle !== 'Unknown') {
