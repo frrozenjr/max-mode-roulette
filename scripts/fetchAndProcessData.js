@@ -175,7 +175,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
 
         extractedData.push(result)
 
-        console.log(JSON.stringify(extractedData, null, 2))
+        //console.log(JSON.stringify(extractedData, null, 2))
 
         extractedData.push(1) // the number of max modes you've done so far
 
