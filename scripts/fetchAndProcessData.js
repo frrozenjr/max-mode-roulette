@@ -2,7 +2,6 @@
 
 export async function fetchAndProcessData(ml, ul, extended) {
     try {
-        // Fetch the HTML from the proxy using the provided URL
         const urls = {
             "ML": "https://sites.google.com/view/maxmodelist/main-list/ml-primary",
             "MLextended": "https://sites.google.com/view/maxmodelist/main-list/ml-extended",
@@ -28,18 +27,15 @@ export async function fetchAndProcessData(ml, ul, extended) {
             }
         }
 
-        // Parse HTML
         const parser = new DOMParser()
         const doc = parser.parseFromString(html, 'text/html')
 
-        // Prepare to extract data
         const extractedData = []
         const sections = doc.querySelectorAll('div.tyJCtd.mGzaTb.Depvyb.baZpAe')
 
         sections.forEach((section, index) => {
             const data = {}
 
-            // Extract Position and Game Title
             let titleElement = section.querySelector('h1')
             if (!titleElement) {
                 titleElement = section.querySelector('p')
@@ -48,7 +44,6 @@ export async function fetchAndProcessData(ml, ul, extended) {
             if (titleElement) {
                 const titleText = titleElement.textContent.trim()
 
-                // Adjusted regex to handle different formats
                 const positionMatch = titleText.match(/#\s*(\d+)\s*[-\s]*(.*)$/)
                 if (positionMatch) {
                     data.position = positionMatch[1].trim()
@@ -68,7 +63,6 @@ export async function fetchAndProcessData(ml, ul, extended) {
                 "True Nightmare No Luring Together": "https://gamejolt.com/games/OblitusCasa/356260"
             }
 
-            // Extract Game Link
             if (!Object.keys(games).includes(data.gameTitle)) {
                 const gameLinkElement = section.querySelector('a.XqQF9c')
                 if (gameLinkElement) {
@@ -80,7 +74,6 @@ export async function fetchAndProcessData(ml, ul, extended) {
                 data.gameLink = games[data.gameTitle]
             }
 
-            // Extract Game Title
             const gameTitleElement = section.querySelector('span.Ztu2ge.C9DxTc')
             if (gameTitleElement) {
                 data.gameTitleLink = gameTitleElement.textContent
@@ -88,7 +81,6 @@ export async function fetchAndProcessData(ml, ul, extended) {
                 data.gameTitleLink = 'No title available'
             }
 
-            // Extract Length of Night
             let nightLength = 'No length available'
             const pElements = section.querySelectorAll('p.zfr3Q.CDt4Ke')
 
@@ -102,7 +94,6 @@ export async function fetchAndProcessData(ml, ul, extended) {
                 }
             })
 
-            // Process and convert night length to seconds
             if (nightLength !== 'No length available') {
                 const numbers = nightLength.split(" ")
                 let minutes = 0
@@ -125,13 +116,12 @@ export async function fetchAndProcessData(ml, ul, extended) {
                 extractedData[extractedData.length - 1].nightLength = nightLength
             }
 
-            // Store the extracted data
+
             if (data.gameTitle !== 'Unknown') {
                 extractedData.push(data)
             }
         })
 
-        // Extract YouTube URLs
         const youtubeLinks = []
         const sections2 = doc.querySelectorAll('a.fqo2vd')
 
@@ -142,10 +132,9 @@ export async function fetchAndProcessData(ml, ul, extended) {
             youtubeLinks.push(`https://img.youtube.com/vi/${match ? match[1] : ''}/0.jpg`)
         })
 
-        // Add YouTube images to extracted data, accounting for the offset
         extractedData.forEach((data, index) => {
-            const isExtended = parseInt(data.position) > 75 // Determine if the data is from the extended list
-            const imageIndex = isExtended ? index + 1 : index // Adjust index based on list type
+            const isExtended = parseInt(data.position) > 75
+            const imageIndex = isExtended ? index + 1 : index
 
             if (youtubeLinks[imageIndex]) {
                 data.image = youtubeLinks[imageIndex]
