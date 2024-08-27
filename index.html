@@ -363,7 +363,17 @@
         let list = null
 
         const getTime = (nightLength, number) => {
-            return Math.floor(((parseInt(nightLength)/50) * number) * 10) / 10
+            let toggle = list[list.length - 4]
+
+            if (toggle == true || toggle == false) { } else {
+                toggle = false
+            }
+
+            if (toggle == false) {
+                return Math.floor(((parseInt(nightLength)/50) * number) * 10) / 10
+            } else {
+                return nightLength
+            }
         }
 
         const getNewData = (numbah) => {
@@ -381,11 +391,24 @@
 
             const time = getTime(modeTableThing.nightLength, number)
 
+            let toggle = list[list.length - 4]
+
+            if (toggle == true || toggle == false) { } else {
+                toggle = false
+            }
+
+            let progress = null
+            if (toggle == false) {
+                progress = `Get at least ${time} seconds in`
+            } else {
+                progress = `Beat the mode`
+            }
+
             document.body.getElementsByClassName('score')[0].textContent = "Score: " + (number - 1).toString()
 
             list[list.length - 1] = number + 1
 
-            return [`https://fritty.7m.pl/proxy.php?url=${modeTableThing.image}`, `#${modeTableThing.position} - ${modeTableThing.gameTitle}`, modeTableThing.gameTitleLink, `Get at least ${time} seconds in`, modeTableThing.gameLink]
+            return [`https://fritty.7m.pl/proxy.php?url=${modeTableThing.image}`, `#${modeTableThing.position} - ${modeTableThing.gameTitle}`, modeTableThing.gameTitleLink, progress, modeTableThing.gameLink]
         }
 
         const createAndAppendNewBox = (numbah) => {

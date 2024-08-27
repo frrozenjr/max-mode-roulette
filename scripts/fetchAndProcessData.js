@@ -182,6 +182,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
             result.push(numbers[randomIndex])
             numbers.splice(randomIndex, 1)
         }
+        extractedData.push(false) // Toggle if you want to 100% all max modes.
 
         extractedData.push("FNaF Max Mode Roulette") // Title
 
