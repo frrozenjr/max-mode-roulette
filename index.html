@@ -105,10 +105,9 @@
             width: calc(100vw - 40px);
             max-width: calc(100% - 40px);
             margin: 20px auto;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.075);
             box-shadow: 0 0px 50px rgba(255, 255, 255, 0.075);
             
-            transform: translateY(100px);
+            transform: translateY(50px);
             opacity: 0;
             transition: transform 0.6s ease-out, opacity 0.6s ease-out;
         }
@@ -278,6 +277,14 @@
             box-shadow: 0 0px 50px rgba(255, 0, 0, 0.25);
         }
 
+        #fetchButton.disabled {
+            cursor: not-allowed;
+        }
+
+        #saveButton.disabled {
+            cursor: not-allowed;
+        }
+
         #fetchButton.restart:hover {
             background-color: darkred;
         }
@@ -432,10 +439,16 @@
             }
         }
 
-        document.getElementById('fetchButton').addEventListener('click', async () => {
+        const fetch = document.getElementById('fetchButton')
+        fetch.addEventListener('click', async () => {
             const selectedOption = document.querySelector('input[name="selection"]:checked')
 
             if (selectedOption) {
+                fetch.disabled = true
+                document.getElementById('saveButton').disabled = true
+                document.getElementById('saveButton').classList.add('disabled')
+
+                fetch.classList.add('disabled')
 
                 const selectedValue = selectedOption.value
                 let ML = selectedValue === 'Option 1'
@@ -443,17 +456,19 @@
 
                 const data = await fetchAndProcessData(ML, UL, document.getElementById('extendedToggle').checked)
                 list = data
-                const button = document.getElementById('fetchButton')
-                button.classList.add('restart')
-                button.textContent = 'Restart'
+                fetch.classList.add('restart')
+                fetch.textContent = 'Restart'
                 document.getElementById('saveButton').textContent = "Save"
 
                 const existingBoxes = document.querySelectorAll('.mode')
                 existingBoxes.forEach(box => box.remove())
-
+                
                 createAndAppendNewBox()
-            } else {
-                document.getElementById('output').textContent = 'No option selected.'
+
+                fetch.disabled = false
+                fetch.classList.remove('disabled')
+                document.getElementById('saveButton').disabled = false
+                document.getElementById('saveButton').classList.remove('disabled')
             }
         })
 
