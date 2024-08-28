@@ -122,17 +122,31 @@ export async function fetchAndProcessData(ml, ul, extended) {
 
                 seconds += minutes * 60
                 nightLength = seconds.toString()
-                extractedData[extractedData.length - 1].nightLength = nightLength
+                if (!extractedData[extractedData.length - 1].ignore) {
+                    extractedData[extractedData.length - 1].nightLength = nightLength
+                }
             }
 
-            if (data.gameTitle == "Puppet Night All Challenges") {
-                data.nightLength = "360" // because idk why its not working
+            const hardCodedGames = {
+                "Puppet Night All Challenges": "360",
+                "Nightmare All Challenges": "540",
+                "Girlboss": "373",
+                "Final Night All Challenges No Stalling": "780",
+                "The Challenge": "20",
+                "Neverending Nightmare": "690",
+                "15/22 Aggressive": "420",
+                "Sorrow Spring": "406",
+                "14/22 Mode": "120",
+                "GRADUATION DAY": "540",
+                "Parasitic Pals Aggressive AIs": "600",
+                "Hasta La Pasta!": "460",
+                "8/20 Mode": "202"
             }
-            if (data.gameTitle == "Nightmare All Challenges") {
-                data.nightLength = "540" // because idk why its not working
-            }
-            if (data.gameTitle == "Girlboss") {
-                data.nightLength = "373" // because idk why its not working
+
+            if (Object.keys(hardCodedGames).includes(data.gameTitle)) {
+                console.log(data.gameTitle)
+                data.nightLength = hardCodedGames[data.gameTitle] // this is for either N/A night lengths or the length is broken
+                data.ignore = true
             }
 
             // Store the extracted data

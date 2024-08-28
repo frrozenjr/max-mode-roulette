@@ -418,6 +418,9 @@
             } else {
                 number = numbah
             }
+            if (list[list.length - 1] == list[list.length - 2].length) {
+                list[list.length - 4] = true
+            }
             if (list[list.length - 2][number - 1] !== undefined) {
                 const newBox = createBox(getNewData(numbah))
                 const modeContainer = document.getElementsByClassName('mode-container')[0]
