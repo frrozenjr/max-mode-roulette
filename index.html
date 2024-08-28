@@ -31,6 +31,10 @@
             text-shadow: 0px 0px 50px rgb(255, 255, 255, .5);  
         }
 
+        h1:hover {
+            color:rgb(207, 207, 207);
+        }
+
         input, button {
             padding: 10px;
             margin: 10px 0;
@@ -404,7 +408,7 @@
                 progress = `Beat the mode`
             }
 
-            document.body.getElementsByClassName('score')[0].textContent = "Score: " + (number - 1).toString()
+            document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
 
             list[list.length - 1] = number + 1
 
@@ -463,6 +467,8 @@
                 const nextButton = newBox.querySelector('.next')
                 if (nextButton) {
                     nextButton.addEventListener('click', () => {
+                        list[list.length - 5] += 1
+                        document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
                         const contain = document.getElementsByClassName('mode-container')
                         contain[0].getElementsByClassName('button-container')[0].remove()
                         contain[0].getElementsByClassName('progress')[0].remove()
@@ -472,7 +478,6 @@
                         const listOfModes = list[list.length - 2]
 
                         const mode = listOfModes[number - 1]
-
                         const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
 
                         const index = list.findIndex(item => item.position === mode.toString())
@@ -488,7 +493,7 @@
                     console.error('Next button not found.')
                 }
             } else {
-                document.body.getElementsByClassName('score')[0].textContent = "Score: " + (number - 1).toString()
+                document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
 
                 const newBox = createBox(null)
                 const modeContainer = document.getElementsByClassName('mode-container')[0]
@@ -519,6 +524,9 @@
 
                 const data = await fetchAndProcessData(ML, UL, document.getElementById('extendedToggle').checked)
                 list = data
+                if (isNaN(parseInt(list[list.length - 5]))) {
+                    list.splice(list.length - 4, 0, list[list.length - 1] - 1)
+                }
                 fetch.classList.add('restart')
                 fetch.textContent = 'Restart'
                 document.getElementById('saveButton').textContent = "Save"
@@ -566,6 +574,9 @@ ${JSON.stringify(list, null, 2)}`
                         const newList = JSON.parse(content.substring(73,content.length))
                         newList[newList.length - 1] = newList[newList.length - 1] - 1
                         list = newList
+                        if (isNaN(parseInt(list[list.length - 5]))) {
+                            list.splice(list.length - 4, 0, list[list.length - 1] - 1)
+                        }
 
                         const button = document.getElementById('fetchButton')
                         button.classList.add('restart')
@@ -575,7 +586,7 @@ ${JSON.stringify(list, null, 2)}`
                         const roulette = list[list.length - 2]
                         const number = list[list.length - 1]
 
-                        document.body.getElementsByClassName('score')[0].textContent = "Score: " + (number - 1).toString()
+                        document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
 
                         for (let i = 0; i < number - 1; i++) {
                             const mode = roulette[i]

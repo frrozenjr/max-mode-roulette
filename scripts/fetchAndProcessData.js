@@ -144,7 +144,6 @@ export async function fetchAndProcessData(ml, ul, extended) {
             }
 
             if (Object.keys(hardCodedGames).includes(data.gameTitle)) {
-                console.log(data.gameTitle)
                 data.nightLength = hardCodedGames[data.gameTitle] // this is for either N/A night lengths or the length is broken
                 data.ignore = true
             }
@@ -196,6 +195,8 @@ export async function fetchAndProcessData(ml, ul, extended) {
             result.push(numbers[randomIndex])
             numbers.splice(randomIndex, 1)
         }
+        extractedData.push(0) // New score
+
         extractedData.push(false) // Toggle if you want to 100% all max modes.
 
         extractedData.push("FNaF Max Mode Roulette") // Title
