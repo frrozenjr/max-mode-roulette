@@ -356,7 +356,7 @@
     
     <button id="fetchButton">Start</button>
     <button id="saveButton">Load</button>
-    <button id="docsButton" onclick="window.location.href='https://docs.google.com/document/d/1UWeE8zpyJx1VOhLsu3gGbF1_FgxVyjjkolnXR8b3mIs/edit?usp=sharing';">Save file Docs</button>
+    <button id="docsButton" onclick="window.open('https://docs.google.com/document/d/1UWeE8zpyJx1VOhLsu3gGbF1_FgxVyjjkolnXR8b3mIs/edit?usp=sharing', '_blank', 'noopener,noreferrer');">Custom Roulette Docs</button>
     <input type="file" id="fileInput" style="display: none;" accept=".mmr" />
 
     <div class="mode-container"></div>
@@ -513,6 +513,10 @@
 
             if (selectedOption) {
                 fetch.disabled = true
+                if (fetch.className == "restart" && document.getElementById('saveButton') === null) {
+                    location.reload()
+                    return
+                }
                 document.getElementById('saveButton').disabled = true
                 document.getElementById('saveButton').classList.add('disabled')
 
@@ -625,7 +629,7 @@ ${JSON.stringify(list, null, 2)}`
         })
     </script>
     <div class="credits">
-        <p>Made by tootiefritty on discord. Special thanks to pickleve for supporting me.</p>
+        <p>Made by tootiefritty on discord. Special thanks to pickleve for supporting me and Frix.</p>
     </div>    
 </body>
 </html>

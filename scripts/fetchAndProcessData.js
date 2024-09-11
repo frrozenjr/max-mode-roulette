@@ -244,6 +244,7 @@ export function createBox(table) {
         const p = document.createElement('p')
         link.textContent = game
         link.href = gamelink
+        link.target = "_blank"
 
         p.appendChild(link)
 
