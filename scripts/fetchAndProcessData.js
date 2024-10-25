@@ -13,17 +13,17 @@ export async function fetchAndProcessData(ml, ul, extended) {
         let response
         let html = ""
         if (ml == true) {
-            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ML}`)
+            response = await fetch(`hhttps://sudden-waiting-baroness.glitch.me/${urls.ML}`)
             html = await response.text()
             if (extended == true) {
-                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.MLextended}`)
+                response = await fetch(`hhttps://sudden-waiting-baroness.glitch.me/${urls.MLextended}`)
                 html = html + await response.text()
             }
         } else if (ul == true) {
-            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.UL}`)
+            response = await fetch(`hhttps://sudden-waiting-baroness.glitch.me/${urls.UL}`)
             html = await response.text()
             if (extended == true) {
-                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ULextended}`)
+                response = await fetch(`hhttps://sudden-waiting-baroness.glitch.me/${urls.ULextended}`)
                 html = html + await response.text()
             }
         }
