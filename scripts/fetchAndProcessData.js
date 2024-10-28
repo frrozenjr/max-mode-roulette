@@ -13,35 +13,39 @@ export async function fetchAndProcessData(ml, ul, extended) {
         let response
         let html = ""
         if (ml == true) {
-            response = await fetch(`https://sudden-waiting-baroness.glitch.me/${urls.ML}`, {
+            response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.ML}`, {
                 method: 'GET',
                 headers: {
-                    'Origin': ''
+                    'Origin': '',
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                 }
             })
             html = await response.text()
             if (extended == true) {
-                response = await fetch(`https://sudden-waiting-baroness.glitch.me/${urls.MLextended}`, {
+                response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.MLextended}`, {
                     method: 'GET',
                     headers: {
-                        'Origin': ''
+                        'Origin': '',
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                     }
                   })
                 html = html + await response.text()
             }
         } else if (ul == true) {
-            response = await fetch(`https://sudden-waiting-baroness.glitch.me/${urls.UL}`, {
+            response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.UL}`, {
                 method: 'GET',
                 headers: {
-                    'Origin': ''
+                    'Origin': '',
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                 }
               })
             html = await response.text()
             if (extended == true) {
-                response = await fetch(`https://sudden-waiting-baroness.glitch.me/${urls.ULextended}`, {
+                response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.ULextended}`, {
                     method: 'GET',
                     headers: {
-                        'Origin': ''
+                        'Origin': '',
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                     }
                   })
                 html = html + await response.text()
