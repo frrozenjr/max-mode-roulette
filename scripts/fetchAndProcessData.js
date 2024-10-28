@@ -4,10 +4,10 @@ export async function fetchAndProcessData(ml, ul, extended) {
     try {
         // Fetch the HTML from the proxy using the provided URL
         const urls = {
-            "ML": "https://sites.google.com/view/maxmodelist/main-list/ml-primary",
-            "MLextended": "https://sites.google.com/view/maxmodelist/main-list/ml-extended",
-            "UL": "https://sites.google.com/view/maxmodelist/unlimited-list/ul-primary",
-            "ULextended": "https://sites.google.com/view/maxmodelist/unlimited-list/ul-extended"
+            "ML": "https://frrozenjr.github.io/max-mode-roulette/temporary/main.json",
+            "MLextended": "https://frrozenjr.github.io/max-mode-roulette/temporary/mainextended.json",
+            "UL": "https://frrozenjr.github.io/max-mode-roulette/temporary/unlimited.json",
+            "ULextended": "https://frrozenjr.github.io/max-mode-roulette/temporary/unlimitedextended.json"
         }
 
         let response
@@ -20,7 +20,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                 }
             })
-            html = await response.text()
+            html = await response.json()
             if (extended == true) {
                 response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.MLextended}`, {
                     method: 'GET',
@@ -29,7 +29,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                     }
                   })
-                html = html + await response.text()
+                html = await response.json()
             }
         } else if (ul == true) {
             response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.UL}`, {
@@ -39,7 +39,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                 }
               })
-            html = await response.text()
+            html = await response.json()
             if (extended == true) {
                 response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.ULextended}`, {
                     method: 'GET',
@@ -48,10 +48,11 @@ export async function fetchAndProcessData(ml, ul, extended) {
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
                     }
                   })
-                html = html + await response.text()
+                html = await response.json()
             }
         }
 
+        /*
         // Parse HTML
         const parser = new DOMParser()
         const doc = parser.parseFromString(html, 'text/html')
@@ -203,9 +204,11 @@ export async function fetchAndProcessData(ml, ul, extended) {
 
         if (extractedData.length === 0) {
             extractedData.push({ error: 'No relevant data found' })
-        }
+        } */
 
         const numbers = []
+
+        const extractedData = html
 
         for (let i = 0; i < extractedData.length; i++) {
             if (extractedData[i].nightLength !== "0") {
@@ -227,7 +230,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
 
         extractedData.push(result)
 
-        //console.log(JSON.stringify(extractedData, null, 2))
+        console.log(JSON.stringify(extractedData, null, 2))
 
         extractedData.push(1) // The number of max modes you've done so far
 
