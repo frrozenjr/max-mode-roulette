@@ -13,7 +13,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
         let response
         let html = ""
         if (ml == true) {
-            response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.ML}`, {
+            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ML}`, {
                 method: 'GET',
                 headers: {
                     'Origin': '',
@@ -22,7 +22,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
             })
             html = await response.json()
             if (extended == true) {
-                response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.MLextended}`, {
+                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.MLextended}`, {
                     method: 'GET',
                     headers: {
                         'Origin': '',
@@ -32,7 +32,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
                 html = await response.json()
             }
         } else if (ul == true) {
-            response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.UL}`, {
+            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.UL}`, {
                 method: 'GET',
                 headers: {
                     'Origin': '',
@@ -41,7 +41,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
               })
             html = await response.json()
             if (extended == true) {
-                response = await fetch(`https://thingproxy.freeboard.io/fetch/${urls.ULextended}`, {
+                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ULextended}`, {
                     method: 'GET',
                     headers: {
                         'Origin': '',
