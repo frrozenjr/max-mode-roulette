@@ -187,7 +187,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
         const extractedData = html
 
         for (let i = 0; i < extractedData.length; i++) {
-            if (extractedData[i].nightLength !== "0") {
+            if (extractedData[i].nightLength !== "NaN") {
                 numbers.push(parseInt(extractedData[i].position))
             }
         }
