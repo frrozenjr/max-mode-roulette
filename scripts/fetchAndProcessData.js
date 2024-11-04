@@ -13,41 +13,17 @@ export async function fetchAndProcessData(ml, ul, extended) {
         let response
         let html = ""
         if (ml == true) {
-            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ML}`, {
-                method: 'GET',
-                headers: {
-                    'Origin': '',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-                }
-            })
+            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ML}`)
             html = await response.json()
             if (extended == true) {
-                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.MLextended}`, {
-                    method: 'GET',
-                    headers: {
-                        'Origin': '',
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-                    }
-                  })
+                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.MLextended}`)
                 html = await response.json()
             }
         } else if (ul == true) {
-            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.UL}`, {
-                method: 'GET',
-                headers: {
-                    'Origin': '',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-                }
-              })
+            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.UL}`)
             html = await response.json()
             if (extended == true) {
-                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ULextended}`, {
-                    method: 'GET',
-                    headers: {
-                        'Origin': '',
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-                    }
-                  })
+                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ULextended}`)
                 html = await response.json()
             }
         }
