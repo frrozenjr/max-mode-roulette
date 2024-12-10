@@ -2,39 +2,106 @@
 
 export async function fetchAndProcessData(ml, ul, extended) {
     try {
-        // Fetch the HTML from the proxy using the provided URL
+        // Api link
+        const api = "https://mml-api-drab.vercel.app/"
+
+        // Fetch the HTML from the proxy using the URL
         const urls = {
-            "ML": "https://frrozenjr.github.io/max-mode-roulette/temporary/main.json",
-            "MLextended": "https://frrozenjr.github.io/max-mode-roulette/temporary/mainextended.json",
-            "UL": "https://frrozenjr.github.io/max-mode-roulette/temporary/unlimited.json",
-            "ULextended": "https://frrozenjr.github.io/max-mode-roulette/temporary/unlimitedextended.json"
+            "ML": "https://sites.google.com/view/maxmodelist/main-list/ml-primary",
+            "MLextended": "https://sites.google.com/view/maxmodelist/main-list/ml-extended",
+            "UL": "https://sites.google.com/view/maxmodelist/unlimited-list/ul-primary",
+            "ULextended": "https://sites.google.com/view/maxmodelist/unlimited-list/ul-extended"
         }
+
+        const extractedData = []
+        let list = "ml"
+
+        if (ul == true) {
+            list = "ul"
+        }
+
+        let data = undefined
+
+        await fetch(`https://fritty.7m.pl/proxy.php?url=${api}/levels/${list}/page/1`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(newres => {
+            data = newres
+        })
+        .catch(error => {
+            console.error('Error:', error)
+        });
+
+
+
+        let levels = extended ? 150 : 75
+        for (let i = 0; i < levels; i++) {
+            let dataChunk = data[i]
+
+            let maxmode = {}
+            maxmode.position = dataChunk[`${list}Top`].toString()
+            maxmode.gameTitle = dataChunk.name
+            maxmode.gameLink = dataChunk.link
+            maxmode.gameTitleLink = dataChunk.game
+
+            let nightLength = dataChunk.mmlength
+
+            const numbers = nightLength.split(" ")
+            let minutes = 0
+            let seconds = 0
+            const minuteStrings = ["minutes", "mins.", "min."]
+
+            if (numbers[0] !== "N/A") {
+                if (numbers[1] && minuteStrings.includes(numbers[1].toLowerCase())) {
+                    minutes = parseInt(numbers[0])
+                } else {
+                    minutes = parseInt(numbers[0])
+                }
+                if (numbers[1] === "minutes" && numbers[2]) {
+                    seconds = parseInt(numbers[2])
+                }
+            }
+
+            seconds += minutes * 60
+            nightLength = seconds.toString()
+
+            maxmode.nightLength = nightLength
+
+            // Cache youtube image
+            maxmode.image = `https://img.youtube.com/vi/${dataChunk.videoID}/0.jpg`
+            maxmode.videoID = dataChunk.videoID
+
+            extractedData.push(maxmode)
+        }
+        /* 
 
         let response
         let html = ""
         if (ml == true) {
-            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ML}`)
-            html = await response.json()
+            response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.ML}`)
+            html = await response.text()
             if (extended == true) {
-                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.MLextended}`)
-                html = await response.json()
+                response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.MLextended}`)
+                html = html + await response.text()
             }
         } else if (ul == true) {
-            response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.UL}`)
-            html = await response.json()
+            response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.UL}`)
+            html = await response.text()
             if (extended == true) {
-                response = await fetch(`https://fritty.7m.pl/proxy.php?url=${urls.ULextended}`)
-                html = await response.json()
+                response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.ULextended}`)
+                html = html + await response.text()
             }
         }
 
-        /*
         // Parse HTML
         const parser = new DOMParser()
         const doc = parser.parseFromString(html, 'text/html')
 
         // Prepare to extract data
-        const extractedData = []
         const sections = doc.querySelectorAll('div.tyJCtd.mGzaTb.Depvyb.baZpAe')
 
         sections.forEach((section, index) => {
@@ -180,14 +247,13 @@ export async function fetchAndProcessData(ml, ul, extended) {
 
         if (extractedData.length === 0) {
             extractedData.push({ error: 'No relevant data found' })
-        } */
+        }
 
+        */
         const numbers = []
 
-        const extractedData = html
-
         for (let i = 0; i < extractedData.length; i++) {
-            if (extractedData[i].nightLength !== "NaN") {
+            if (extractedData[i].nightLength !== "0") {
                 numbers.push(parseInt(extractedData[i].position))
             }
         }
@@ -224,6 +290,7 @@ export function createBox(table) {
         const game = table[2]
         const progress = table[3]
         const gamelink = table[4]
+        const videoID = table[5]
         const box = document.createElement('div')
         box.className = 'mode'
 
@@ -233,8 +300,15 @@ export function createBox(table) {
 
         const imgContainer = document.createElement('div')
         imgContainer.className = 'image-container'
+        if (videoID !== undefined) {
+            const a = document.createElement('a')
+            a.href = `https://www.youtube.com/watch?v=${videoID}`
 
-        imgContainer.append(img)
+            imgContainer.append(a)
+            a.append(img)
+        } else {
+            imgContainer.append(img)
+        }
 
         const h2 = document.createElement('h2')
         h2.textContent = title
