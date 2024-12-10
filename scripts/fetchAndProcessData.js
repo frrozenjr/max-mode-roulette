@@ -75,7 +75,9 @@ export async function fetchAndProcessData(ml, ul, extended) {
             maxmode.image = `https://img.youtube.com/vi/${dataChunk.videoID}/0.jpg`
             maxmode.videoID = dataChunk.videoID
 
-            extractedData.push(maxmode)
+            if (seconds.toString() != "NaN") {
+                extractedData.push(maxmode)
+            }
         }
         /* 
 
