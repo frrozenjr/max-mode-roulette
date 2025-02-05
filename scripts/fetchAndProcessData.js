@@ -3,7 +3,7 @@
 export async function fetchAndProcessData(ml, ul, extended) {
     try {
         // Api link
-        const api = "https://mml-api-drab.vercel.app/"
+        const api = "https://mml-api-mu.vercel.app/"
 
         // Fetch the HTML from the proxy using the URL
         const urls = {
