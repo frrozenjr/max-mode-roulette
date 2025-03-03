@@ -35,6 +35,17 @@
             color:rgb(207, 207, 207);
         }
 
+        h16 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            color: inherit;
+            margin: 0;
+            text-shadow: 0px 0px 50px rgb(255, 255, 255, .5);  
+        }
+
         input, button {
             padding: 10px;
             margin: 10px 0;
@@ -361,6 +372,8 @@
 
     <div class="mode-container"></div>
 
+    <h16 class="goodbye">This website is discontinued until a new API pops up. Save files will still work. See ya!</h16>
+
     <script type="module">
         import { fetchAndProcessData, createBox } from './scripts/fetchAndProcessData.js'
 
@@ -509,7 +522,7 @@
 
         const fetch = document.getElementById('fetchButton')
         fetch.addEventListener('click', async () => {
-            const selectedOption = document.querySelector('input[name="selection"]:checked')
+            /*const selectedOption = document.querySelector('input[name="selection"]:checked')
 
             if (selectedOption) {
                 fetch.disabled = true
@@ -544,7 +557,7 @@
                 fetch.classList.remove('disabled')
                 document.getElementById('saveButton').disabled = false
                 document.getElementById('saveButton').classList.remove('disabled')
-            }
+            }*/
         })
 
         const buttton = document.getElementById('saveButton')

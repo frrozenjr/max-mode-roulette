@@ -286,6 +286,10 @@ export async function fetchAndProcessData(ml, ul, extended) {
 }
 
 export function createBox(table) {
+    let goodbyetext = document.body.getElementsByClassName('goodbye')[0]
+    if (goodbyetext !== undefined) {
+        goodbyetext.remove()
+    }
     if (table !== null) {
         const imageUrl = table[0]
         const title = table[1]
