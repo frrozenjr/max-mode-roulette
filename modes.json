@@ -1,0 +1,1005 @@
+ {
+  "modes": [
+  {
+    "id": 1,
+    "position": 1,
+    "name": "Hopeless Greed",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=97Vbj_tc0-Y",
+    "thumbnail": "https://i3.ytimg.com/vi/97Vbj_tc0-Y/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "AubreyH, Nephryte",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Asknaf",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 2,
+    "position": 2,
+    "name": "Chromophobia",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=lNPvSkx7A2M",
+    "thumbnail": "https://i.imgur.com/tij8sHS.png",
+    "publisher": {
+      "id": 62758,
+      "name": "Diamond Ace",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "[You did this to yourself.]",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+
+ {
+    "id": 3,
+    "position": 3,
+    "name": "Hellish Hyper Showdown",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=sHrWQT52o0Y",
+    "thumbnail": "https://i3.ytimg.com/vi/sHrWQT52o0Y/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "astaceres.",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Kookii",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 4,
+    "position": 4,
+    "name": "50/70 Mode",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=wtMITCjiXo4",
+    "thumbnail": "https://i3.ytimg.com/vi/wtMITCjiXo4/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Scott Cawthon, Nephryte",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Almohadaless",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+
+ {
+    "id": 5,
+    "position": 5,
+    "name": "Eternal Suicide Mouse (v1.5.2)",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=ywD1T81f4h0",
+    "thumbnail": "https://i3.ytimg.com/vi/ywD1T81f4h0/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "CesarZ, SpawnRusher",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Eventeer",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 6,
+    "position": 6,
+    "name": "Silent Suicide Mouse (v1.3.2)",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=OPi_DC5R2S0",
+    "thumbnail": "https://i3.ytimg.com/vi/OPi_DC5R2S0/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "CesarZ",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Toadder25",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 7,
+    "position": 7,
+    "name": "Funtime Finale V.Hard v1.1.15",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=hlJ_cLpAfkY",
+    "thumbnail": "https://i3.ytimg.com/vi/hlJ_cLpAfkY/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "SpawnRusher",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Brodude5747",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 8,
+    "position": 8,
+    "name": "True Nightmare Aggressive Long Nights (v1.1.1)",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=bgXBC8xxvBE",
+    "thumbnail": "https://i3.ytimg.com/vi/bgXBC8xxvBE/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Radiance Team",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "insstaa",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 9,
+    "position": 9,
+    "name": "Bitcrush 5",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=wxu5Eu24-PI",
+    "thumbnail": "https://i3.ytimg.com/vi/wxu5Eu24-PI/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Kepler",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "LunaticByte",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 10,
+    "position": 10,
+    "name": "Worst Day Ever",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=mX40sR8nydg",
+    "thumbnail": "https://i3.ytimg.com/vi/mX40sR8nydg/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Matt Warkoski",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "VinceDoesStuff",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 11,
+    "position": 11,
+    "name": "Dawn of the Dead",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=2JzbMrtBYGM",
+    "thumbnail": "https://i3.ytimg.com/vi/2JzbMrtBYGM/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "M4x1f0x, Kouzelnik",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Radriares",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 12,
+    "position": 12,
+    "name": "Grand Finale No Charge Power No Exploits",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=ue11SXvhT8w",
+    "thumbnail": "https://i3.ytimg.com/vi/ue11SXvhT8w/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "RandomHeck",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Random Name",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 13,
+    "position": 13,
+    "name": "Funtime Gala Very Hard Mode",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=FnW2gaOQLp4",
+    "thumbnail": "https://i3.ytimg.com/vi/FnW2gaOQLp4/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Shooter25",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "SerdnALof",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 14,
+    "position": 14,
+    "name": "Pizza Man No Sound",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=uOKGEBPU9AU",
+    "thumbnail": "https://i3.ytimg.com/vi/uOKGEBPU9AU/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "TryFly, TheAshton2000",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "SpawnRusher",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 15,
+    "position": 15,
+    "name": "The Final Fizz",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=9xFi1bCnDNM",
+    "thumbnail": "https://i3.ytimg.com/vi/OPi_DC5R2S0/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Arita (A Random Account In This App)",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Rayze",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 16,
+    "position": 16,
+    "name": "Mid Mode",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=Ts-maRFwfjY",
+    "thumbnail": "https://i3.ytimg.com/vi/Ts-maRFwfjY/hqdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Mr. Manatee",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Frogger25",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 17,
+    "position": 17,
+    "name": "The True Gauntlet",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=cLXCpYshDQ4",
+    "thumbnail": "https://i3.ytimg.com/vi/cLXCpYshDQ4/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Mr. Manatee, Nephryte",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Mirlie",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 18,
+    "position": 18,
+    "name": "Evil 7/20 All Challenges",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=2yPmMC8Jfao",
+    "thumbnail": "https://i3.ytimg.com/vi/2yPmMC8Jfao/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "danoodle",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Tox",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 19,
+    "position": 19,
+    "name": "Ribboron's Showdown",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=hFoILGP2lB4",
+    "thumbnail": "https://i3.ytimg.com/vi/hFoILGP2lB4/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Djoof",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Il Tizio 666",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 20,
+    "position": 20,
+    "name": "How Did We Get Here?++",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=zQS-h32FR-w",
+    "thumbnail": "https://i3.ytimg.com/vi/zQS-h32FR-w/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Kepler",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Niko Frost",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 21,
+    "position": 21,
+    "name": "The Challenge",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=h40VqEuT4h0",
+    "thumbnail": "https://i3.ytimg.com/vi/h40VqEuT4h0/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Shooter25",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Shooter25",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 22,
+    "position": 22,
+    "name": "Hyper Golden Freddy",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=Q7RwWSaX8UA",
+    "thumbnail": "https://i3.ytimg.com/vi/Q7RwWSaX8UA/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "astaceres.",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Matt Warkoski",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 23,
+    "position": 23,
+    "name": "The Bite",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=ytroAK4gZ_c",
+    "thumbnail": "https://i3.ytimg.com/vi/ytroAK4gZ_c/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Kepler",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Shawtavius",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 24,
+    "position": 24,
+    "name": "Twisted 27",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=hHCqJmWGMYY",
+    "thumbnail": "https://i3.ytimg.com/vi/hHCqJmWGMYY/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Gestalt Games",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Quilly",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 25,
+    "position": 25,
+    "name": "Neverending Nightmare",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=MwZncM6tp5U",
+    "thumbnail": "https://i3.ytimg.com/vi/MwZncM6tp5U/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Nephryte",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Funky",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 26,
+    "position": 26,
+    "name": "Insane Gambriarra",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=hrpbfc1Yr8U",
+    "thumbnail": "https://i3.ytimg.com/vi/hrpbfc1Yr8U/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "ToadXW",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Astromic",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 27,
+    "position": 27,
+    "name": "Edge of Sanity Max Night",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=2B0nvPwExjM",
+    "thumbnail": "https://i3.ytimg.com/vi/2B0nvPwExjM/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "HollowBat",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Zeffox300",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 28,
+    "position": 28,
+    "name": "Min Mode",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=wc65kNtaw30",
+    "thumbnail": "https://i3.ytimg.com/vi/wc65kNtaw30/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Mr. Manatee",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Driplodonculous",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 29,
+    "position": 29,
+    "name": "Ticketless Nightmare",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=w7LNHyK1PFc",
+    "thumbnail": "https://i3.ytimg.com/vi/w7LNHyK1PFc/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Buttery Stancakes",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "CzarIsActual",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 30,
+    "position": 30,
+    "name": "Strict 7/20 + All Challenges",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=yKQDa-TooEs",
+    "thumbnail": "https://i3.ytimg.com/vi/yKQDa-TooEs/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Ryon",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "PM.Serk",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 31,
+    "position": 31,
+    "name": "Gatekeep Gaslight",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=88PkgoqjTVc",
+    "thumbnail": "https://i3.ytimg.com/vi/88PkgoqjTVc/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "ITDEER",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Ultra",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 32,
+    "position": 32,
+    "name": "True Nightmare No Post Mortem",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=88PkgoqjTVc",
+    "thumbnail": "https://i3.ytimg.com/vi/88PkgoqjTVc/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Radiance Team",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Trueskillz1",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 33,
+    "position": 33,
+    "name": "Lagomorphic Limbo",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=YXi4ZRdR1yY",
+    "thumbnail": "https://i3.ytimg.com/vi/YXi4ZRdR1yY/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Lagostolz",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Lagostolz",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 34,
+    "position": 34,
+    "name": "Hotel Hell",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=-k3Q80Wz5EU",
+    "thumbnail": "https://i3.ytimg.com/vi/-k3Q80Wz5EU/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Birdbonanza",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "McChicken",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 35,
+    "position": 35,
+    "name": "Parasitic Pals Aggressive AIs",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=Gqc9cJ2vAiI",
+    "thumbnail": "https://i3.ytimg.com/vi/Gqc9cJ2vAiI/hqdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "FazieFunbear",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Rav",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 36,
+    "position": 36,
+    "name": "Jane Doe All Challenges",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=mGTa8na3f0Q",
+    "thumbnail": "https://i3.ytimg.com/vi/mGTa8na3f0Q/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "cate gamer",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "CrimXoanz",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 37,
+    "position": 37,
+    "name": "Hardest Scrambled Mode",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=doI1-ee9s4A",
+    "thumbnail": "https://i3.ytimg.com/vi/doI1-ee9s4A/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Official_LR",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "TR_18",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 38,
+    "position": 38,
+    "name": "S.O.S 5000",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=HZMcOdbjpBA",
+    "thumbnail": "https://i3.ytimg.com/vi/HZMcOdbjpBA/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Deadfish Games",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Frogboi",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 39,
+    "position": 39,
+    "name": "50/20 No Death Coin",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=mfxs17ZCC7U",
+    "thumbnail": "https://i3.ytimg.com/vi/mfxs17ZCC7U/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Scott Cawthon",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Dixie",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 40,
+    "position": 40,
+    "name": "Puppet Night All Challenges (v1.2.3)",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=kDVqUaiuKc4",
+    "thumbnail": "https://i3.ytimg.com/vi/kDVqUaiuKc4/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Shooter25",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Waff",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 41,
+    "position": 41,
+    "name": "BURN WITH ME",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=2fgVAkAizNo",
+    "thumbnail": "https://i3.ytimg.com/vi/2fgVAkAizNo/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Team Loonatix",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Zany",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 42,
+    "position": 42,
+    "name": "Chaotic 21 Frequent Minigames",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=nl8B1Y01MK8",
+    "thumbnail": "https://i3.ytimg.com/vi/nl8B1Y01MK8/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "GeorgeWKush",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Pineapple",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 43,
+    "position": 43,
+    "name": "Double Decker Night",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=9-7NkorDPFQ",
+    "thumbnail": "https://i3.ytimg.com/vi/9-7NkorDPFQ/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "AubreyH / PurpleShade",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Lucky",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 44,
+    "position": 44,
+    "name": "New Super Hawk Tuah With Costume in Channel 4 With Power No Death Coin (No Exploits)",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=wP5iQo3-Kgo",
+    "thumbnail": "https://i3.ytimg.com/vi/wP5iQo3-Kgo/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Paren",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Joan-zy",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 45,
+    "position": 45,
+    "name": "Fuck My Chungus Night 2",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=YWZ7tRJF8Io",
+    "thumbnail": "https://i3.ytimg.com/vi/YWZ7tRJF8Io/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "rnadascud",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Birdbonanza",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 46,
+    "position": 46,
+    "name": "9/20 Mode [Travis' Trial]",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=sdsAz385LU0",
+    "thumbnail": "https://i3.ytimg.com/vi/sdsAz385LU0/hqdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Team Loonatix",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Sunken",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 47,
+    "position": 47,
+    "name": "Rat & Cat Theater Seperate Luring",
+    "requirement": 59,
+    "video": "",
+    "thumbnail": "",
+    "publisher": {
+      "id": 62758,
+      "name": "Nephryte",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Xypher",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 48,
+    "position": 48,
+    "name": "8/20+",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=UJdPuiFMyiY",
+    "thumbnail": "https://i3.ytimg.com/vi/UJdPuiFMyiY/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Elefelen",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Shosela",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 49,
+    "position": 49,
+    "name": "True Nightmare [FNaTI 2020]",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=K0IxF5pHKp8",
+    "thumbnail": "https://i3.ytimg.com/vi/K0IxF5pHKp8/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Radiance Team",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "MUYB",
+      "banned": false
+    },
+    "level_id": 119550490
+  },
+
+ {
+    "id": 50,
+    "position": 50,
+    "name": "Hard Boiled Mode No Office Camping [ONAF 1]",
+    "requirement": 59,
+    "video": "https://www.youtube.com/watch?v=K0IxF5pHKp8",
+    "thumbnail": "https://i3.ytimg.com/vi/K0IxF5pHKp8/maxresdefault.jpg",
+    "publisher": {
+      "id": 62758,
+      "name": "Jonochrome",
+      "banned": false
+    },
+    "verifier": {
+      "id": 51613,
+      "name": "Mr. Manatee",
+      "banned": false
+    },
+    "level_id": 119550490
+  }
+]
+}

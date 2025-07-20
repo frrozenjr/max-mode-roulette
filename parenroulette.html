@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="FNaF Max Mode Roulette" property="og:title" />
+    <meta content="Try your luck and see if you can progress in 50 max modes!" property="og:description" />
+    <meta content="https://frrozenjr.github.io/max-mode-roulette/" property="og:url" />
+    <meta content="https://frrozenjr.github.io/max-mode-roulette/icon.png" property="og:image" />
+    <title>Good Luck, Paren.</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px;
+            padding-top: 100px;
+            top: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #200000;
+            color: #ffffff;
+        }
+
+        h1 {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            color: inherit;
+            margin: 0;
+            text-shadow: 0px 0px 50px rgb(255, 255, 255, .5);  
+        }
+
+        h1:hover {
+            color:rgb(207, 207, 207);
+        }
+
+        h16 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            color: inherit;
+            margin: 0;
+            text-shadow: 0px 0px 50px rgb(255, 255, 255, .5);  
+            z-index: 1000;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        input, button {
+            background-color: #333333;
+            color: #ffffff;
+            border: 1px solid #555555;
+        }
+
+        .box-container {
+            position:absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 10px;
+            flex-direction: row;
+        }
+
+        .extended-toggle {
+            position: absolute;
+            top: 40px;
+            left: 65px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 10px;
+            flex-direction: row;
+        }
+
+        h5 {
+            position: fixed;
+            top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-direction: row;
+  
+            z-index: 1000;
+            
+            text-shadow: 0px 0px 10px rgb(255, 255, 255, .5);
+        }
+
+        h6 {
+            font-size: 50px;
+            transform: translate(-50%, -50%);
+            top: 25px;
+            text-shadow: 0px 0px 100px rgb(255, 255, 255, .5);  
+            position: relative;
+            left:50%;
+        }
+
+        .mode {
+            display: flex;
+            align-items: flex-start;
+            border: 1px solid #232222;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #2a2a2a;
+            width: calc(100vw - 40px);
+            max-width: calc(100% - 40px);
+            margin: 20px auto;
+            box-shadow: 0 0px 50px rgba(255, 255, 255, 0.075);
+            
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform .5s ease-out, opacity .5s ease-out;
+        }
+
+        .mode.entering {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .image-container {
+            width: 250px;
+            height: 140px;
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: 0 0px 10px rgba(0,0,0, 0.5);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover;
+            display: block;
+        }
+
+        .mode .text-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            margin-top: 15px
+        }
+
+        .mode h2 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .mode h4 {
+            margin: 10px 0 0;
+            font-size: 30px;
+            text-shadow: 0px 0px 50px rgb(255, 255, 255, .5);  
+        }
+
+        .mode h3 {
+            margin: 0;
+            font-size: 10px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-left: auto;
+        }
+
+        .mode p {
+            margin: 10px 0 0;
+            font-style: italic;
+        }
+
+        .mode a {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .mode .button-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 10px;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-left: auto;
+        }
+
+        .mode .skip {
+            background-color: #606060;
+            color: white;
+            border-radius: 5px;
+            border: 2px solid #3c3c3c;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            box-shadow: 0 0px 50px rgba(255, 255, 255, 0.1);
+        }
+
+        .mode .skip:hover {
+            background-color: #383838;
+        }
+
+        .mode .next {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            border: 2px solid #306e32;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            box-shadow: 0 0px 50px rgba(0, 255, 0, 0.1);
+        }
+
+        .mode .next:hover {
+            background-color: #2a722d;
+        }
+
+        .mode .text-box {
+            margin-top: 10px;
+        }
+
+        .mode input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #fetchButton {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            border: 2px solid #306e32;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            box-shadow: 0 0px 50px rgba(0, 255, 0, 0.25);
+        }
+
+        #fetchButton:hover {
+            background-color: darkgreen;
+        }
+
+        #saveButton {
+            background-color: darkslategray;
+            color: white;
+            border-radius: 5px;
+            border: 2px solid #2a2a2a;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            box-shadow: 0 0px 50px rgba(255, 255, 255, 0.1);
+        }
+
+        #saveButton:hover {
+            background-color: #1e1e1e;
+        }
+
+        #docsButton {
+            background-color: darkslategray;
+            color: white;
+            border-radius: 5px;
+            border: 2px solid #2a2a2a;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            box-shadow: 0 0px 50px rgba(255, 255, 255, 0.1);
+        }
+
+        #docsButton:hover {
+            background-color: #1e1e1e;
+        }
+        
+        #fetchButton.restart {
+            background-color: red;
+            border: 2px solid #510000;
+            color: white;
+            box-shadow: 0 0px 50px rgba(255, 0, 0, 0.25);
+        }
+
+        #fetchButton.disabled {
+            cursor: not-allowed;
+        }
+
+        #saveButton.disabled {
+            cursor: not-allowed;
+        }
+
+        #fetchButton.restart:hover {
+            background-color: darkred;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        .credits {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.2);
+            z-index: 1000;
+        }
+
+        .credits p {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<a href="https://frrozenjr.github.io/max-mode-roulette/info">
+    <h1 class="title-class">Paren's Pandemonium</h1>
+</a>
+<body>
+    <!--<div class="extended-toggle">
+        <input type="checkbox" id="extendedToggle" />
+        <label for="extendedToggle">Extended</label>
+    </div>-->
+    <h5 class="score">Score: 0</h5>
+    <!--<div class="box-container">
+        <div class="box">
+            <input type="radio" id="mlbox" name="selection" value="Option 1">
+            <label for="box1">Main List</label>
+        </div>
+        <div class="box">
+            <input type="radio" id="ulbox" name="selection" value="Option 2">
+            <label for="box2">Unlimited List</label>
+        </div>
+    </div>-->
+
+    <div id="container"></div>
+
+    <h16 class="goodbye"></h16>
+    
+    <button id="fetchButton">Start</button>
+    <button id="saveButton">Load</button>
+    <!--<button id="docsButton" onclick="window.open('https://docs.google.com/document/d/1UWeE8zpyJx1VOhLsu3gGbF1_FgxVyjjkolnXR8b3mIs/edit?usp=sharing', '_blank', 'noopener,noreferrer');">Custom Roulette Docs</button>
+--><input type="file" id="fileInput" style="display: none;" accept=".mmr" />
+
+    <div class="mode-container"></div>
+
+    <script type="module">
+        import { fetchAndProcessData, createBox } from './scripts/fetchAndProcessDataparen.js'
+
+        let list = null
+
+        const getTime = (nightLength, number) => {
+            let toggle = list[list.length - 4]
+
+            if (toggle == true || toggle == false) { } else {
+                toggle = false
+            }
+
+            if (toggle == false) {
+                return Math.floor(((parseInt(nightLength)/50) * number) * 10) / 10
+            } else {
+                return nightLength
+            }
+        }
+
+        const getNewData = (numbah) => {
+            let number = null
+            if (numbah == undefined) {
+                number = list[list.length - 1]
+            } else {
+                number = numbah
+            }
+            const listOfModes = list[list.length - 2]
+
+            const mode = listOfModes[number - 1]
+
+            const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
+
+            let toggle = true
+
+            let progress = null
+            if (toggle == false) {
+                progress = `Get at least ${time} seconds in`
+            } else {
+                progress = `Beat the mode`
+            }
+
+            document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
+
+            list[list.length - 1] = number + 1
+
+            return [`${modeTableThing.thumbnail}`, `#${modeTableThing.position} - ${modeTableThing.gameTitle}`, `${modeTableThing.submitter}`, `${modeTableThing.video}`, `${modeTableThing.maker}`]
+        }
+
+        const createAndAppendNewBox = (numbah) => {
+            let number = null
+            if (numbah == undefined) {
+                number = list[list.length - 1]
+            } else {
+                number = numbah
+            }
+            if (list[list.length - 1] == list[list.length - 2].length) {
+                list[list.length - 4] = true
+            }
+            if (list[list.length - 2][number - 1] !== undefined) {
+                const newBox = createBox(getNewData(numbah))
+                const modeContainer = document.getElementsByClassName('mode-container')[0]
+                modeContainer.appendChild(newBox)
+
+                setTimeout(() => {
+                    newBox.classList.add('entering')
+                }, 100)
+
+                const skipButton = newBox.querySelector('.skip')
+                if (skipButton) {
+                    skipButton.addEventListener('click', () => {
+                        const message = document.body.getElementsByClassName("goodbye")[0]
+                        message.textContent = "Fuck you"
+                        setTimeout(() => {
+                            message.textContent = ""
+                        }, "1000")
+                    })
+                } else {
+                    console.error('Skip button not found.')
+                }
+
+                const nextButton = newBox.querySelector('.next')
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        list[list.length - 5] += 1
+                        document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
+                        const contain = document.getElementsByClassName('mode-container')
+                        contain[0].getElementsByClassName('button-container')[0].remove()
+                        contain[0].getElementsByClassName('progress')[0].remove()
+                        const progress = contain[contain.length - 1].getElementsByClassName('progress')[0]
+
+                        const number = list[list.length - 1] - 1
+                        const listOfModes = list[list.length - 2]
+
+                        const mode = listOfModes[number - 1]
+                        const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
+
+                        const index = list.findIndex(item => item.position === mode.toString())
+
+                        list[index].time = getTime(modeTableThing.nightLength, number)
+
+                        progress.textContent = "Finished"
+                        progress.className = "progressOld"
+                        
+                        createAndAppendNewBox()
+                    })
+                } else {
+                    console.error('Next button not found.')
+                }
+            } else {
+                document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
+
+                const newBox = createBox(null)
+                const modeContainer = document.getElementsByClassName('mode-container')[0]
+                modeContainer.appendChild(newBox)
+
+                setTimeout(() => {
+                    newBox.classList.add('entering')
+                }, 100)
+
+                document.getElementById('saveButton').remove()
+            }
+        }
+
+        const fetch = document.getElementById('fetchButton')
+        fetch.addEventListener('click', async () => {
+            fetch.disabled = true
+            if (fetch.className == "restart" && document.getElementById('saveButton') === null) {
+                location.reload()
+                return
+            }
+            document.getElementById('saveButton').disabled = true
+            document.getElementById('saveButton').classList.add('disabled')
+
+            fetch.classList.add('disabled')
+
+            const data = await fetchAndProcessData()
+            list = data
+            if (isNaN(parseInt(list[list.length - 5]))) {
+                list.splice(list.length - 4, 0, list[list.length - 1] - 1)
+            }
+            fetch.classList.add('restart')
+            fetch.textContent = 'Restart'
+            document.getElementById('saveButton').textContent = "Save"
+
+            const existingBoxes = document.querySelectorAll('.mode')
+            existingBoxes.forEach(box => box.remove())
+            
+            createAndAppendNewBox()
+
+            fetch.disabled = false
+            fetch.classList.remove('disabled')
+            document.getElementById('saveButton').disabled = false
+            document.getElementById('saveButton').classList.remove('disabled')
+        })
+
+        const buttton = document.getElementById('saveButton')
+        buttton.addEventListener('click', async () => {
+            if (buttton.textContent == "Save") {
+                const data = `// DO NOT READ THE CONTENTS OF THIS FILE, ITLL LEAK WHAT MODES YOU GOT!
+
+${JSON.stringify(list, null, 2)}`
+                const blob = new Blob([data], { type: 'text/plain' })
+                const url = URL.createObjectURL(blob)
+
+                const a = document.createElement('a')
+                a.href = url
+                a.download = 'roulette.mmr'
+                a.click()
+
+                URL.revokeObjectURL(url)
+            } else {
+                document.getElementById('fileInput').click()
+            }
+        })
+
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0]
+            if (file) {
+                if (file.type === '' || file.name.endsWith('.mmr')) {
+                    const reader = new FileReader()
+                    
+                    reader.onload = async function(e) {
+                        const content = e.target.result
+                        const newList = JSON.parse(content.substring(73,content.length))
+                        newList[newList.length - 1] = newList[newList.length - 1] - 1
+                        list = newList
+                        if (isNaN(parseInt(list[list.length - 5]))) {
+                            list.splice(list.length - 4, 0, list[list.length - 1] - 1)
+                        }
+
+                        const button = document.getElementById('fetchButton')
+                        button.classList.add('restart')
+                        button.textContent = 'Restart'
+                        document.getElementById('saveButton').textContent = "Save"
+
+                        const roulette = list[list.length - 2]
+                        const number = list[list.length - 1]
+
+                        document.body.getElementsByClassName('score')[0].textContent = "Score: " + list[list.length - 5].toString()
+
+                        for (let i = 0; i < number - 1; i++) {
+                            const mode = roulette[i]
+
+                            const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
+
+                            createAndAppendNewBox(i + 1)
+                            if (modeTableThing.skipped == true) {
+                                const contain = document.getElementsByClassName('mode-container')
+                                contain[0].getElementsByClassName('button-container')[0].remove()
+                                contain[0].getElementsByClassName('progress')[0].remove()
+                                const progress = contain[contain.length - 1].getElementsByClassName('progress')[0]
+
+                                progress.textContent = "Skipped"
+                                progress.className = "progressOld"
+                            } else {
+                                const contain = document.getElementsByClassName('mode-container')
+                                contain[0].getElementsByClassName('button-container')[0].remove()
+                                contain[0].getElementsByClassName('progress')[0].remove()
+                                const progress = contain[contain.length - 1].getElementsByClassName('progress')[0]
+
+                                progress.textContent = "Finished"
+                                progress.className = "progressOld"
+                            }
+                        }
+                        createAndAppendNewBox()
+
+                        document.getElementsByClassName("title-class")[0].textContent = list[list.length - 3]
+                    }
+                    
+                    reader.readAsText(file)
+                } else {
+                    alert('Invalid file type. Please upload a .mmr file.')
+                }
+            }
+        })
+    </script>
+    <div class="credits">
+        <p>Made by tootiefritty on Discord.</p>
+    </div>    
+</body>
+</html>
