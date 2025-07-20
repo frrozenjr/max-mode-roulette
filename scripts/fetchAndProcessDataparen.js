@@ -316,7 +316,7 @@ export function createBox(table) {
         box.className = 'mode'
 
         const h2 = document.createElement('h6')
-        h2.textContent = `Good job! You beat the roulette. Final ${document.getElementsByClassName('score')[0].textContent}`
+        h2.textContent = `You are free... somehow. Final ${document.getElementsByClassName('score')[0].textContent}`
 
         box.appendChild(h2)
         
