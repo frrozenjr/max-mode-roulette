@@ -324,3 +324,12 @@ export function createBox(table) {
     }
 }
 
+export async function changeColor() {
+    const response = await fetch('./color.txt', { cache: 'no-store' })
+    const color = (await response.text()).trim()
+    document.body.style.backgroundColor = color
+
+    const response2 = await fetch('./text.txt', { cache: 'no-store' })
+    const text = (await response2.text()).trim()
+    document.body.getElementsByClassName('goodbye')[0].textContent = text
+}

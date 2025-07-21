@@ -36,7 +36,7 @@
         }
 
         h16 {
-            position: absolute;
+            position: fixed;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -99,6 +99,41 @@
             z-index: 1000;
             
             text-shadow: 0px 0px 10px rgb(255, 255, 255, .5);
+        }
+
+        h21 {
+            position: fixed;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            flex-direction: row;
+            font-size:70%;
+  
+            z-index: 500;
+            
+            text-shadow: 0px 0px 10px rgb(255, 255, 255, .5);
+        }
+
+        h20 {
+            position: fixed;
+            top: 5%;
+            right: 5%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-direction: row;
+  
+            z-index: 1000;
+            
+            text-shadow: 0px 0px 10px rgb(255, 255, 255, .5);
+        }
+
+        h20:hover {
+            color:rgb(207, 207, 207);
         }
 
         h6 {
@@ -354,6 +389,8 @@
         <label for="extendedToggle">Extended</label>
     </div>-->
     <h5 class="score">Score: 0</h5>
+    <a href="javascript:void(0)"><h20 class="toggle"></h20></a>
+    <h21 class="modes">jajajaa<br>jajaj</h21>
     <!--<div class="box-container">
         <div class="box">
             <input type="radio" id="mlbox" name="selection" value="Option 1">
@@ -377,7 +414,9 @@
     <div class="mode-container"></div>
 
     <script type="module">
-        import { fetchAndProcessData, createBox } from './scripts/fetchAndProcessDataparen.js'
+        document.body.getElementsByClassName('modes')[0].style.display = "none"
+
+        import { fetchAndProcessData, createBox, changeColor } from './scripts/fetchAndProcessDataparen.js'
 
         let list = null
 
@@ -425,6 +464,7 @@
         }
 
         const createAndAppendNewBox = (numbah) => {
+            document.body.getElementsByClassName('toggle')[0].textContent = "See the modes that werent picked"
             let number = null
             if (numbah == undefined) {
                 number = list[list.length - 1]
@@ -611,6 +651,59 @@ ${JSON.stringify(list, null, 2)}`
                 }
             }
         })
+
+        let toggled = false
+        const modes = document.body.getElementsByClassName('modes')[0]
+
+        document.getElementsByClassName("toggle")[0].addEventListener("click", function() {
+            toggled = !toggled
+
+            if (toggled == false) {
+                modes.style.display = "none"
+                document.body.getElementsByClassName("mode-container")[0].style.display = "block"
+            } else {
+                modes.style.display = "block"
+                document.body.getElementsByClassName("mode-container")[0].style.display = "none"
+            }
+        })
+
+        async function updateLoop() {
+            changeColor()
+
+            if (list !== null) {
+                const listOfModes = list[list.length - 2]
+                let modesDone = []
+                for (let i = 0; i < list[list.length - 1] - 1; i++) {
+                    modesDone.push(listOfModes[i])
+                }
+                let newTable = []
+                for (let i = 0; i < 50; i++) {
+                    newTable.push("null")
+                }
+                for (let i = 0; i < 50; i++) {
+                    const dataChunk = list[i]
+                    if (!modesDone.includes(parseInt(dataChunk.position))) { 
+                        newTable[dataChunk.position - 1] = dataChunk.gameTitle
+                    }
+                }
+
+                let string = ""
+                for (let i = 0; i < 50; i++) {
+                    const chunk = newTable[i]
+                    if (chunk !== "null") {
+                        string = string + chunk + "<br>"
+                    }
+                }
+
+                modes.innerHTML = string
+            }
+
+            setTimeout(() => {
+                updateLoop()
+            }, 100);
+        }
+
+        updateLoop()
     </script>
     <div class="credits">
         <p>Made by tootiefritty on Discord.</p>
