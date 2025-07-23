@@ -377,6 +377,16 @@
             margin: 0;
             padding: 0;
         }
+        
+        .transparent-container {
+            background-color: transparent;
+        }
+
+        .spacer {
+            height: 500px;
+            width: 100%;
+            background-color: transparent;
+        }
 
     </style>
 </head>
@@ -412,6 +422,9 @@
 --><input type="file" id="fileInput" style="display: none;" accept=".mmr" />
 
     <div class="mode-container"></div>
+    <div class="transparent-container">
+        <div class="spacer"></div>
+    </div>
 
     <script type="module">
         document.body.getElementsByClassName('modes')[0].style.display = "none"
