@@ -598,6 +598,15 @@ ${JSON.stringify(list, null, 2)}`
                         const newList = JSON.parse(content.substring(73,content.length))
                         newList[newList.length - 1] = newList[newList.length - 1] - 1
                         list = newList
+                        for (let i = 0; i < list.length - 5; i++) {
+                            if (typeof list[i].nightLength === "string") {
+                                list[i].nightLength = parseFloat(list[i].nightLength)
+                            }
+                            if (typeof list[i].position === "string") {
+                                list[i].position = parseFloat(list[i].position)
+                            }
+                        }
+                        console.log(list)
                         if (isNaN(parseInt(list[list.length - 5]))) {
                             list.splice(list.length - 4, 0, list[list.length - 1] - 1)
                         }
@@ -615,7 +624,7 @@ ${JSON.stringify(list, null, 2)}`
                         for (let i = 0; i < number - 1; i++) {
                             const mode = roulette[i]
 
-                            const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
+                            const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode)
 
                             createAndAppendNewBox(i + 1)
                             if (modeTableThing.skipped == true) {
