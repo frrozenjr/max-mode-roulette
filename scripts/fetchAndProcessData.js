@@ -138,6 +138,7 @@ export function createBox(table) {
         if (videoID !== undefined) {
             const a = document.createElement('a')
             a.href = `https://www.youtube.com/watch?v=${videoID}`
+            a.target = "_blank"
 
             imgContainer.append(a)
             a.append(img)
