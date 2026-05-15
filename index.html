@@ -372,8 +372,6 @@
 
     <div class="mode-container"></div>
 
-    <h16 class="goodbye">This website is discontinued until a new API pops up. Save files will still work. See ya!</h16>
-
     <script type="module">
         import { fetchAndProcessData, createBox } from './scripts/fetchAndProcessData.js'
 
@@ -393,6 +391,12 @@
             }
         }
 
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = (seconds % 60).toFixed(1);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(4, '0')}`;
+        }
+
         const getNewData = (numbah) => {
             let number = null
             if (numbah == undefined) {
@@ -401,10 +405,13 @@
                 number = numbah
             }
             const listOfModes = list[list.length - 2]
+            console.log(listOfModes)
+            console.log(list)
 
             const mode = listOfModes[number - 1]
+            console.log(mode)
 
-            const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
+            const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode)
 
             const time = getTime(modeTableThing.nightLength, number)
 
@@ -416,7 +423,7 @@
 
             let progress = null
             if (toggle == false) {
-                progress = `Get at least ${time} seconds in`
+                progress = `Reach a time of ${formatTime(time)} / ${formatTime(modeTableThing.nightLength)} seconds`
             } else {
                 progress = `Beat the mode`
             }
@@ -425,7 +432,7 @@
 
             list[list.length - 1] = number + 1
 
-            return [`${modeTableThing.image}`, `#${modeTableThing.position} - ${modeTableThing.gameTitle}`, modeTableThing.gameTitleLink, progress, modeTableThing.gameLink]
+            return [`${modeTableThing.image}`, `#${modeTableThing.position} - ${modeTableThing.gameTitle}`, modeTableThing.gameTitleLink, progress, modeTableThing.gameLink, modeTableThing.videoID]
         }
 
         const createAndAppendNewBox = (numbah) => {
@@ -460,15 +467,15 @@
 
                         const mode = listOfModes[number - 1]
 
-                        const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
+                        const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode)
 
-                        const index = list.findIndex(item => item.position === mode.toString())
+                        const index = list.findIndex(item => item.position === mode)
 
                         list[index].skipped = true
 
                         list[index].time = getTime(modeTableThing.nightLength, number)
 
-                        progress.textContent = "Skipped at " + getTime(modeTableThing.nightLength, number) + " seconds"
+                        progress.textContent = "Skipped at " + formatTime(getTime(modeTableThing.nightLength, number)) + " seconds"
                         progress.className = "progressOld"
                         
                         createAndAppendNewBox()
@@ -491,13 +498,13 @@
                         const listOfModes = list[list.length - 2]
 
                         const mode = listOfModes[number - 1]
-                        const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode.toString())
+                        const modeTableThing = list.find(modeTableThing => modeTableThing.position === mode)
 
-                        const index = list.findIndex(item => item.position === mode.toString())
+                        const index = list.findIndex(item => item.position === mode)
 
                         list[index].time = getTime(modeTableThing.nightLength, number)
 
-                        progress.textContent = "Finished at " + getTime(modeTableThing.nightLength, number) + " seconds"
+                        progress.textContent = "Finished at " + formatTime(getTime(modeTableThing.nightLength, number)) + " seconds"
                         progress.className = "progressOld"
                         
                         createAndAppendNewBox()
@@ -522,7 +529,7 @@
 
         const fetch = document.getElementById('fetchButton')
         fetch.addEventListener('click', async () => {
-            /*const selectedOption = document.querySelector('input[name="selection"]:checked')
+            const selectedOption = document.querySelector('input[name="selection"]:checked')
 
             if (selectedOption) {
                 fetch.disabled = true
@@ -557,7 +564,7 @@
                 fetch.classList.remove('disabled')
                 document.getElementById('saveButton').disabled = false
                 document.getElementById('saveButton').classList.remove('disabled')
-            }*/
+            }
         })
 
         const buttton = document.getElementById('saveButton')

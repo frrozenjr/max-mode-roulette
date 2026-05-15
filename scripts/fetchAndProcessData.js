@@ -3,15 +3,7 @@
 export async function fetchAndProcessData(ml, ul, extended) {
     try {
         // Api link
-        const api = "https://mml-api-mu.vercel.app/"
-
-        // Fetch the HTML from the proxy using the URL
-        const urls = {
-            "ML": "https://sites.google.com/view/maxmodelist/main-list/ml-primary",
-            "MLextended": "https://sites.google.com/view/maxmodelist/main-list/ml-extended",
-            "UL": "https://sites.google.com/view/maxmodelist/unlimited-list/ul-primary",
-            "ULextended": "https://sites.google.com/view/maxmodelist/unlimited-list/ul-extended"
-        }
+        const api = "https://fnafmml.com/api/maxmodes/list"
 
         const extractedData = []
         let list = "ml"
@@ -20,21 +12,28 @@ export async function fetchAndProcessData(ml, ul, extended) {
             list = "ul"
         }
 
-        let data = undefined
+        let data = []
 
-        await fetch(`https://fritty.7m.pl/proxy.php?url=${api}/levels/${list}/page/1`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(newres => {
-            data = newres
-        })
-        .catch(error => {
-            console.error('Error:', error)
-        });
+        for (let i = 1; i <= 3; i++) {
+
+            const targetUrl = encodeURIComponent(`${api}?list=${list}&page=${i}`);
+
+            await fetch(`https://corsproxy.io/?${targetUrl}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(newres => {
+                data.push(...newres.maxmodes)
+            })
+            .catch(error => {
+                console.error('Error:', error)
+            });
+
+        }
+
 
 
 
@@ -43,14 +42,18 @@ export async function fetchAndProcessData(ml, ul, extended) {
             let dataChunk = data[i]
 
             let maxmode = {}
-            maxmode.position = dataChunk[`${list}Top`].toString()
-            maxmode.gameTitle = dataChunk.name
-            maxmode.gameLink = dataChunk.link
-            maxmode.gameTitleLink = dataChunk.game
+            maxmode.position = i + 1
+            maxmode.gameTitle = dataChunk.title
+            maxmode.gameLink = dataChunk.game.link
+            maxmode.gameTitleLink = dataChunk.game.title
+            console.log(maxmode.gameTitle, dataChunk)
 
-            let nightLength = dataChunk.mmlength
+            let nightLength = dataChunk.avg_length_seconds
+            if (nightLength === 0) {
+                nightLength = dataChunk.completion_avg_time
+            }
 
-            const numbers = nightLength.split(" ")
+            /*const numbers = nightLength.split(" ")
             let minutes = 0
             let seconds = 0
             const minuteStrings = ["minutes", "mins.", "min."]
@@ -67,191 +70,17 @@ export async function fetchAndProcessData(ml, ul, extended) {
             }
 
             seconds += minutes * 60
-            nightLength = seconds.toString()
+            nightLength = seconds.toString()*/
 
             maxmode.nightLength = nightLength
 
             // Cache youtube image
-            maxmode.image = `https://img.youtube.com/vi/${dataChunk.videoID}/0.jpg`
-            maxmode.videoID = dataChunk.videoID
+            maxmode.image = dataChunk.thumbnail_url
+            maxmode.videoID = maxmode.image.split("/")[4]
 
-            if (seconds.toString() != "NaN") {
-                extractedData.push(maxmode)
-            }
-        }
-        /* 
-
-        let response
-        let html = ""
-        if (ml == true) {
-            response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.ML}`)
-            html = await response.text()
-            if (extended == true) {
-                response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.MLextended}`)
-                html = html + await response.text()
-            }
-        } else if (ul == true) {
-            response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.UL}`)
-            html = await response.text()
-            if (extended == true) {
-                response = await fetch(`http://frrozenjr.rf.gd/proxy.php?url=${urls.ULextended}`)
-                html = html + await response.text()
-            }
+            extractedData.push(maxmode)
         }
 
-        // Parse HTML
-        const parser = new DOMParser()
-        const doc = parser.parseFromString(html, 'text/html')
-
-        // Prepare to extract data
-        const sections = doc.querySelectorAll('div.tyJCtd.mGzaTb.Depvyb.baZpAe')
-
-        sections.forEach((section, index) => {
-            const data = {}
-
-            // Extract Position and Game Title
-            let titleElement = section.querySelector('h1')
-            if (!titleElement) {
-                titleElement = section.querySelector('p')
-            }
-
-            if (titleElement) {
-                const titleText = titleElement.textContent.trim()
-
-                // Adjusted regex to handle different formats
-                const positionMatch = titleText.match(/#\s*(\d+)\s*[-\s]*(.*)$/)
-                if (positionMatch) {
-                    data.position = positionMatch[1].trim()
-                    data.gameTitle = positionMatch[2].trim()
-                } else {
-                    data.position = 'Unknown'
-                    data.gameTitle = 'Unknown'
-                }
-            } else {
-                data.position = 'Unknown'
-                data.gameTitle = 'Unknown'
-            }
-
-            const games = {
-                "True Nightmare No Post Mortem": "https://gamejolt.com/games/OblitusCasa/356260",
-                "Ultimate Despair": "https://gamejolt.com/games/MonolithicChristmasNight/723872",
-                "True Nightmare No Luring Together": "https://gamejolt.com/games/OblitusCasa/356260"
-            }
-
-            // Extract Game Link
-            if (!Object.keys(games).includes(data.gameTitle)) {
-                const gameLinkElement = section.querySelector('a.XqQF9c')
-                if (gameLinkElement) {
-                    data.gameLink = gameLinkElement.href
-                } else {
-                    data.gameLink = 'No link available'
-                }
-            } else {
-                data.gameLink = games[data.gameTitle]
-            }
-
-            // Extract Game Title
-            const gameTitleElement = section.querySelector('span.Ztu2ge.C9DxTc')
-            if (gameTitleElement) {
-                data.gameTitleLink = gameTitleElement.textContent
-            } else {
-                data.gameTitleLink = 'No title available'
-            }
-
-            // Extract Length of Night
-            let nightLength = 'No length available'
-            const pElements = section.querySelectorAll('p.zfr3Q.CDt4Ke')
-
-            pElements.forEach(p => {
-                const labelSpan = p.querySelector('span.C9DxTc')
-                if (labelSpan && labelSpan.textContent.includes('Length of Night:')) {
-                    const nextElement = labelSpan.nextElementSibling
-                    if (nextElement && nextElement.tagName.toLowerCase() === 'span') {
-                        nightLength = nextElement.textContent.trim()
-                    }
-                }
-            })
-
-            // Process and convert night length to seconds
-            if (nightLength !== 'No length available') {
-                const numbers = nightLength.split(" ")
-                let minutes = 0
-                let seconds = 0
-                const minuteStrings = ["minutes", "mins.", "min."]
-
-                if (numbers[0] !== "N/A") {
-                    if (numbers[1] && minuteStrings.includes(numbers[1].toLowerCase())) {
-                        minutes = parseInt(numbers[0])
-                    } else {
-                        minutes = parseInt(numbers[0])
-                    }
-                    if (numbers[1] === "minutes" && numbers[2]) {
-                        seconds = parseInt(numbers[2])
-                    }
-                }
-
-                seconds += minutes * 60
-                nightLength = seconds.toString()
-                if (!extractedData[extractedData.length - 1].ignore) {
-                    extractedData[extractedData.length - 1].nightLength = nightLength
-                }
-            }
-
-            const hardCodedGames = {
-                "Puppet Night All Challenges": "360",
-                "Nightmare All Challenges": "540",
-                "Girlboss": "373",
-                "Final Night All Challenges No Stalling": "780",
-                "The Challenge": "20",
-                "Neverending Nightmare": "690",
-                "15/22 Aggressive": "420",
-                "Sorrow Spring": "406",
-                "14/22 Mode": "120",
-                "GRADUATION DAY": "540",
-                "Parasitic Pals Aggressive AIs": "600",
-                "Hasta La Pasta!": "460",
-                "8/20 Mode": "202"
-            }
-
-            if (Object.keys(hardCodedGames).includes(data.gameTitle)) {
-                data.nightLength = hardCodedGames[data.gameTitle] // this is for either N/A night lengths or the length is broken
-                data.ignore = true
-            }
-
-            // Store the extracted data
-            if (data.gameTitle !== 'Unknown') {
-                extractedData.push(data)
-            }
-        })
-
-        // Extract YouTube URLs
-        const youtubeLinks = []
-        const sections2 = doc.querySelectorAll('a.fqo2vd')
-
-        sections2.forEach((section) => {
-            const link = section.href
-            const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^"&?\/\s]{11})/
-            const match = link.match(regex)
-            youtubeLinks.push(`https://img.youtube.com/vi/${match ? match[1] : ''}/0.jpg`)
-        })
-
-        // Add YouTube images to extracted data, accounting for the offset
-        extractedData.forEach((data, index) => {
-            const isExtended = parseInt(data.position) > 75 // Determine if the data is from the extended list
-            const imageIndex = isExtended ? index + 1 : index // Adjust index based on list type
-
-            if (youtubeLinks[imageIndex]) {
-                data.image = youtubeLinks[imageIndex]
-            } else {
-                data.image = 'No image available'
-            }
-        })
-
-        if (extractedData.length === 0) {
-            extractedData.push({ error: 'No relevant data found' })
-        }
-
-        */
         const numbers = []
 
         for (let i = 0; i < extractedData.length; i++) {
@@ -274,7 +103,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
 
         extractedData.push(result)
 
-        console.log(JSON.stringify(extractedData, null, 2))
+        // console.log(JSON.stringify(extractedData, null, 2))
 
         extractedData.push(1) // The number of max modes you've done so far
 
@@ -286,10 +115,10 @@ export async function fetchAndProcessData(ml, ul, extended) {
 }
 
 export function createBox(table) {
-    let goodbyetext = document.body.getElementsByClassName('goodbye')[0]
-    if (goodbyetext !== undefined) {
-        goodbyetext.remove()
-    }
+    // let goodbyetext = document.body.getElementsByClassName('goodbye')[0]
+    // if (goodbyetext !== undefined) {
+    //     goodbyetext.remove()
+    // }
     if (table !== null) {
         const imageUrl = table[0]
         const title = table[1]
