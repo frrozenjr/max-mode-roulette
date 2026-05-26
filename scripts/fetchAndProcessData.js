@@ -36,7 +36,7 @@ export async function fetchAndProcessData(ml, ul, extended) {
 
 
 
-
+// 
         let levels = extended ? 150 : 75
         for (let i = 0; i < levels; i++) {
             let dataChunk = data[i]
